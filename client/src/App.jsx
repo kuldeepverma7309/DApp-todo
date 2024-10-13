@@ -8,7 +8,7 @@ const App = () => {
   const [tasks, setTasks] = useState([]);
   const [account, setAccount] = useState('');
 
-  const contractAddress = '0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512'; // Replace with your contract address
+  const contractAddress = '0xA31fb2fa5a318D8E45B6a294260DcD787e28814d';
   const contractAbi = [
     {
       "inputs": [],
@@ -152,8 +152,6 @@ const App = () => {
         const _provider = new ethers.BrowserProvider(window.ethereum);
         setProvider(_provider);
         const signer = await _provider.getSigner();
-        // const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
-        // setAccount(accounts[0]);
 
         const contractInstance = new ethers.Contract(contractAddress, contractAbi, signer);
         setContract(contractInstance);
